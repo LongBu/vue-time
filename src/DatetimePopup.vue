@@ -1,28 +1,6 @@
 <template>
   <div class="vdatetime-popup">
     <div class="vdatetime-popup__body">
-      <datetime-year-picker
-          v-if="step === 'year'"
-          @change="onChangeYear"
-          :min-date="minDatetimeUTC"
-          :max-date="maxDatetimeUTC"
-          :year="year"></datetime-year-picker>
-      <datetime-month-picker
-          v-if="step === 'month'"
-          @change="onChangeMonth"
-          :min-date="minDatetimeUTC"
-          :max-date="maxDatetimeUTC"
-          :year="year"
-          :month="month"></datetime-month-picker>
-      <datetime-calendar
-          @change="onChangeDate"
-          :year="year"
-          :month="month"
-          :day="day"
-          :min-date="minDatetimeUTC"
-          :max-date="maxDatetimeUTC"
-          :week-start="weekStart"
-      ></datetime-calendar>
       <table class="hrMinTable">
       <tbody>
         <tr>
