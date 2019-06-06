@@ -39,6 +39,9 @@
             </table>
     </div>
     <div class="vdatetime-popup__actions">
+      <div class="vdatetime-popup__actions__button" @click="now">
+        <slot v-bind:step="step">Now</slot>
+      </div>
       <div class="vdatetime-popup__actions__button vdatetime-popup__actions__button--cancel" @click="cancel">
         <slot name="button-cancel__internal" v-bind:step="step">{{ phrases.cancel }}</slot>
       </div>
@@ -249,6 +252,15 @@ export default {
     },
     cancel () {
       this.$emit('cancel')
+    },
+    now (){
+      const temptime = new Date();
+      const minute = temptime.getMinutes();
+      const hour = temptime.getHours();
+      this.newDatetime = this.newDatetime.set({ minute, hour })
+      this.timePartsTouched['minute'] = true
+      this.timePartsTouched['hour'] = true
+
     },
     onChangeYear (year) {
       this.newDatetime = this.newDatetime.set({ year })
