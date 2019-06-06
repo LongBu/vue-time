@@ -1,25 +1,42 @@
 <template>
   <div class="vdatetime-popup">
     <div class="vdatetime-popup__body">
-      <table class="hrMinTable">
-      <tbody>
-        <tr>
-        <td class="td1">
-          <button class="caretUpDown icon-angle-up" @click="hourUp()"></button>
-          <div class="hrMinTxt">{{nonMilitaryHr}}</div>
-          <button class="caretUpDown icon-angle-down" @click="hourDn()"></button>
-        </td>
-        <td class="td2">
-          <button class="caretUpDown icon-angle-up" @click="minUp()"></button>
-          <div class="hrMinTxt">{{minute < 10 ? '0' + minute : minute}}</div>
-          <button class="caretUpDown icon-angle-down" @click="minDn()"></button>
-        </td>
-        <td>
-          <button class="ampm" @click="toggleAmPm()">{{pm ? 'PM': 'AM'}}</button>
-        </td>
-        </tr>
-        </tbody>
-      </table>
+      <table class="hrMinTable" v-if="!use12Hour">
+            <tbody>
+              <tr>
+              <td class="td1">
+                <button class="caretUpDown icon-angle-up" @click="hourUp()"></button>
+                <div class="hrMinTxt">{{newDatetime.hour}}</div>
+                <button class="caretUpDown icon-angle-down" @click="hourDn()"></button>
+              </td>
+              <td class="td2">
+                <button class="caretUpDown icon-angle-up" @click="minUp()"></button>
+                <div class="hrMinTxt">{{minute < 10 ? '0' + minute : minute}}</div>
+                <button class="caretUpDown icon-angle-down" @click="minDn()"></button>
+              </td>
+
+              </tr>
+              </tbody>
+            </table>
+            <table class="hrMinTable" v-else-if="use12Hour">
+            <tbody>
+              <tr>
+              <td class="td1">
+                <button class="caretUpDown icon-angle-up" @click="hourUp()"></button>
+                <div class="hrMinTxt">{{nonMilitaryHr}}</div>
+                <button class="caretUpDown icon-angle-down" @click="hourDn()"></button>
+              </td>
+              <td class="td2">
+                <button class="caretUpDown icon-angle-up" @click="minUp()"></button>
+                <div class="hrMinTxt">{{minute < 10 ? '0' + minute : minute}}</div>
+                <button class="caretUpDown icon-angle-down" @click="minDn()"></button>
+              </td>
+              <td>
+                <button class="ampm" @click="toggleAmPm()">{{pm ? 'PM': 'AM'}}</button>
+              </td>
+              </tr>
+              </tbody>
+            </table>
     </div>
     <div class="vdatetime-popup__actions">
       <div class="vdatetime-popup__actions__button vdatetime-popup__actions__button--cancel" @click="cancel">

@@ -156,8 +156,10 @@ export default {
 
   computed: {
     inputValue () {
-      let format = this.format
-
+      let format = "HH:mm"
+      if (this.use12Hour){
+        format = "t"
+      }
       if (!format) {
         switch (this.type) {
           case 'date':
@@ -172,7 +174,6 @@ export default {
             break
         }
       }
-
       if (typeof format === 'string') {
         return this.datetime ? DateTime.fromISO(this.datetime).setZone(this.zone).toFormat(format) : ''
       } else {
