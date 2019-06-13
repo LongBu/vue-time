@@ -403,15 +403,14 @@ export default {
   background: white;
   &:hover {
     color: white;
-    background: #74447A;
+    background: #c15f4a;
   }
 }
 .vdatetime-popup__actions__button--confirm{
   color: white;
   background: #74447A;
   &:hover {
-    color: #74447A;
-    background: white;
+    background: #c15f4a;
   }
 }
 </style>
