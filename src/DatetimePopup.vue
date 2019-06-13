@@ -314,6 +314,7 @@ export default {
 .hrMinTxt{
   text-align: center;
   color:#74447A;
+  font-size: 14px;
 }
 .ampm{
   color: white;
