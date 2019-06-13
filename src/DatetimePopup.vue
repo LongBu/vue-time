@@ -305,6 +305,9 @@ export default {
 .hrMinTable{
   margin:15px auto 20px
 }
+table.hrMinTable tbody tr td{
+  border: none;
+}
 .td1{
   padding-right: 50px;
 }
